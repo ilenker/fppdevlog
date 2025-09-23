@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Batchtris Devlog</title>
+    <link href="/index.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <article><div><h1>Batchtris Devlog</h1><p><img src="/images/banner.png" alt="page banner"></img></p><h3>2025-09-23</h3><p>A take on tetris based on the idea of placing a sequence of pieces in "batches".
+You're given a queue, say a 7-bag, then you need to somehow input the total sequence for the entire 7-bag, without seeing the result of each move. Thinking the input notation would also assume perfect finesse.</p><p>While writing a simple typing test program in Python using Curses, I learned that dealing with user input, specifically "key-release" events is not trivial in the slightest. If I were to write a tetris clone with modern features (custom DAS and ARR, support for various spins), the standard ways of dealing with input wouldn't cut it. I'll get into the reasons for this in future logs.</p><h4>Want-to's:</h4><ol><li>write it in C</li>
+<li>have it be a TUI app</li></ol><h4>Considerations:</h4><ul><li>Verticle aspect ratio of terminal characters. I need squares</li>
+<li>Accessibility for those unfamiliar with perfect finesse inputs</li>
+<li>Logic of how spins and slides are handled feels like it will be a doozey</li></ul><p><a href="/about">About</a></p></div></article>
+  </body>
+</html>
