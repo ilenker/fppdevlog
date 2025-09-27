@@ -52,6 +52,7 @@ def extract_title(md):
 
 def generate_page(from_path, template_path, dest_path, basepath):
     print(f'Generating page from "{from_path}" to "{dest_path}" using "{template_path}"')
+
     with open(from_path, 'r', encoding='utf-8') as f:
         md_file = f.read()  
     with open(template_path, 'r', encoding='utf-8') as f:
