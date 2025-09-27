@@ -1,5 +1,7 @@
 # Let's begin
 
+[< Back Home](/)
+
 Right. We're ~700 lines deep into this thing already (I suspect half of those lines are comments). I was almost done with the groundwork - barebones tetris gameplay:
 
 - Gravity ✓
@@ -35,15 +37,23 @@ Thinking about how to handle line-clearing, I came to the conclusion that some l
 1. some row is full.
 2. for each non-empty row above it, move each down a row in the grid.
 
-_(another side note: literally as I'm writing this, I'm going back and forth thinking:
-	"a 2D array is probably more than fine, maybe even faster that this linked list garbage, stop overcomplicating things",
-and:
-	"no wait, a linked-list will make future optimisation easier",
-and then:
-	"it's just a tetris clone, we have all the memory and CPU speed in the world, just do the cleanest, easy-to-reason-about solution.",
-and then:
-	"but trying to implement this linked list solution is fun in-and-of-itself, that's reason enough to try it"
-this thought pattern can be debilitating, but hey, don't worry - it only get's worse from here)_
+_(another side note: literally as I'm writing this, I'm going back and forth thinking:_
+
+> "a 2D array is probably more than fine, maybe even faster that this linked list garbage, stop overcomplicating things"
+
+_and:_
+
+> "no wait, a linked-list will make future optimisation easier"
+
+_and then:_
+
+> "it's just a tetris clone, we have all the memory and CPU speed in the world, just do the cleanest, easy-to-reason-about solution."
+
+_and then:_
+
+> "but trying to implement this linked list solution is fun in-and-of-itself, that's reason enough to try it"
+
+_this thought pattern can be debilitating, but hey, don't worry - it only get's worse from here)_
 
 Now this sounds like a perfect use-case for a linked list to me. One static-length linked list, each node representing a row, that just get's shuffled around as lines get cleared. Let's take the single clear example again:
 
@@ -61,7 +71,7 @@ Sure, it sounds convoluted. But I believe this will make multiple line-clears, a
 4. make the highest full row the head.
 5. zero-out the 4 rows.
 
-Compare this with a standard 2D array approach:
+    Compare this with a standard 2D array approach:
 
 1. 4 rows have been cleared at once.
 2. for each non-empty row above the highest full row, copy it down starting at the lowest full row.
@@ -76,7 +86,6 @@ void clear_rows(board_t *board, int fullrow, int count) {
 	   /*   row_at_index(head, i-th node)   */
 	  /*    returns a pointer to the i-th  */
 	 /*     node down from the head node. */
-    /*                                   */
 	row_t *pre_gap = row_at_index(board, fullrow - 1);
 	row_t *full_row = pre_gap->next;
 	row_t *post_gap;

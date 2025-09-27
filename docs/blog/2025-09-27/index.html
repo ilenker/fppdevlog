@@ -8,7 +8,7 @@
   </head>
 
   <body>
-    <article><div><h1>Let's begin</h1><p>Right. We're ~700 lines deep into this thing already (I suspect half of those lines are comments). I was almost done with the groundwork - barebones tetris gameplay:</p><ul><li>Gravity ✓</li>
+    <article><div><h1>Let's begin</h1><p><a href="/fppdevlog/">< Back Home</a></p><p>Right. We're ~700 lines deep into this thing already (I suspect half of those lines are comments). I was almost done with the groundwork - barebones tetris gameplay:</p><ul><li>Gravity ✓</li>
 <li>Movement and Rotation ✓</li>
 <li>Collision ✓</li>
 <li>Populate board ✓</li></ul><p>The missing <i>piece</i> left to write: line clearing. Oh boy.</p><p>I try to be conscious of the following situation (up until now I wasn't sure it had a name but found the perfect, concise term for it which I'll get to):</p><blockquote>I want to get started on some project.
@@ -23,15 +23,7 @@
  Only to realize a few days later, that we
  built our amazing solution on a jenga
  tower made of matchsticks.</blockquote><p>I've heard the term <i>"technical debt"</i> before in passing, never taking the time to find out exactly what it means, but I think I might have encountered it here, very organically. Might not be that exact thought, but we'll go with it. Technical debt.</p><p>Up until this point, my board logic was built on a typical 20 x 10 array. 20 rows, 10 columns. Nice and simple to reason about. Need a value at some (y , x)? Just subscript and get it - <code>grid[6][9]</code>.</p><p><i>(side note: I'll often describe coordinates using y first - it feels wrong but, because I'm using the ncurses library, which takes</i> <b>all</b> <i>of it's coordinate arguments in that order, e.g.</i> <code>mvaddch(y, x, ch).</code> <i>I've just accepted that convention for this project. Maybe there's an excellent reason they wrote it this way, perhaps that's just how terminal rows and columns are navigated. Let's not go down that rabbit-hole immediately)</i></p><p>Thinking about how to handle line-clearing, I came to the conclusion that some linked list might be best. Reason being, if we fill and then clear e.g. a <i>single row</i> in the grid, we want to effectively "zero-out" that row, and move all of the lines above it down to fill in the gap.</p><ol><li>some row is full.</li>
-<li>for each non-empty row above it, move each down a row in the grid.</li></ol><p><i>(another side note: literally as I'm writing this, I'm going back and forth thinking:
-	"a 2D array is probably more than fine, maybe even faster that this linked list garbage, stop overcomplicating things",
-and:
-	"no wait, a linked-list will make future optimisation easier",
-and then:
-	"it's just a tetris clone, we have all the memory and CPU speed in the world, just do the cleanest, easy-to-reason-about solution.",
-and then:
-	"but trying to implement this linked list solution is fun in-and-of-itself, that's reason enough to try it"
-this thought pattern can be debilitating, but hey, don't worry - it only get's worse from here)</i></p><p>Now this sounds like a perfect use-case for a linked list to me. One static-length linked list, each node representing a row, that just get's shuffled around as lines get cleared. Let's take the single clear example again:</p><ol><li>some row is full.</li>
+<li>for each non-empty row above it, move each down a row in the grid.</li></ol><p><i>(another side note: literally as I'm writing this, I'm going back and forth thinking:</i></p><blockquote>"a 2D array is probably more than fine, maybe even faster that this linked list garbage, stop overcomplicating things"</blockquote><p><i>and:</i></p><blockquote>"no wait, a linked-list will make future optimisation easier"</blockquote><p><i>and then:</i></p><blockquote>"it's just a tetris clone, we have all the memory and CPU speed in the world, just do the cleanest, easy-to-reason-about solution."</blockquote><p><i>and then:</i></p><blockquote>"but trying to implement this linked list solution is fun in-and-of-itself, that's reason enough to try it"</blockquote><p><i>this thought pattern can be debilitating, but hey, don't worry - it only get's worse from here)</i></p><p>Now this sounds like a perfect use-case for a linked list to me. One static-length linked list, each node representing a row, that just get's shuffled around as lines get cleared. Let's take the single clear example again:</p><ol><li>some row is full.</li>
 <li>set the row before it to point to the row after the full row.</li>
 <li>point the full row to the head of the list.</li>
 <li>now make the full row the head of the list.</li>
@@ -46,7 +38,6 @@ void clear_rows(board_t *board, int fullrow, int count) {
 	   /*   row_at_index(head, i-th node)   */
 	  /*    returns a pointer to the i-th  */
 	 /*     node down from the head node. */
-    /*                                   */
 	row_t *pre_gap = row_at_index(board, fullrow - 1);
 	row_t *full_row = pre_gap->next;
 	row_t *post_gap;

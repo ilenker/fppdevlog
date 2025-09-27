@@ -67,7 +67,8 @@ code {
   border-radius: 6px;
   color: #d2f898;
   padding: 0.4em 0.6em;
-  font-family: "Courier New", monospace;
+  font-family: "Monaco", monospace;
+  font-size: 0.8em;
 }
 
 pre code {
@@ -80,6 +81,7 @@ pre {
   padding: 1em;
   overflow: auto;
   box-shadow: 2px 2px 6px #000;
+  line-height: 0.9;
 }
 
 blockquote {
