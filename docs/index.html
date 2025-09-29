@@ -3,17 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Batchtris Devlog</title>
+    <title></title>
     <link href="/fppdevlog/index.css" rel="stylesheet" />
   </head>
 
   <body>
-    <article><div><h1>Batchtris Devlog</h1><p><img src="/fppdevlog/images/banner.png" alt="page banner"></img></p><p><i>aka chesstris aka plantris aka blindtris</i></p><h3>2025-09-23</h3><ul><li><a href="/fppdevlog/blog/2025-09-27">2025-09-27 >> Linked-Lists, Technical Debt</a></li></ul><p>A take on tetris based on the idea of placing a sequence of pieces in "batches".
-You're given a queue, say a 7-bag, then you need to somehow input the total sequence for the entire 7-bag, without seeing the result of each move. Thinking the input notation would also assume perfect finesse.</p><p>While writing a simple typing test program in Python using Curses, I learned that dealing with user input, specifically "key-release" events is not trivial in the slightest. If I were to write a tetris clone with modern features (custom DAS and ARR, support for various spins), the standard ways of dealing with input wouldn't cut it. I'll get into the reasons for this in future logs.</p><h4>Want-to's:</h4><ol><li>write it in C</li>
+    <article><div><p><img src="/fppdevlog/images/banner.png" alt="page banner"></img></p><h1>BATCHTRIS</h1><h2>WHATISAMANAMI<br>SERABLELITTLE<br>PILEOFSECRETS</h2><p>A take on tetris based on the idea of placing a sequence of pieces in "batches". Name needs work.</p><p><a href="/fppdevlog/blog/2025-09-27"> -> 2025-09-27 >> Linked-Lists, Technical Debt</a></p><p>You're given a queue, say a 7-bag, then you need to somehow input the total sequence for the entire 7-bag, without seeing the result of each move. Thinking the input notation would also assume perfect finesse. While writing a simple typing test program in Python using Curses, I learned that dealing with user input, specifically "key-release" events is not trivial in the slightest. If I were to write a tetris clone with modern features (custom DAS and ARR, support for various spins), the standard ways of dealing with input wouldn't cut it. I'll get into the reasons for this in future logs.</p><h6>Overview:</h6><ol><li>write it in C</li>
 <li>have it be a TUI app</li>
-<li>implement proper "modern tetris" mechanics (twists, Super Rotation System, etc)</li></ol><h4>Considerations:</h4><ul><li>Verticle aspect ratio of terminal characters. I need squares</li>
+<li>modern tetris mechanics<ul><li>hard drops</li><li>spins</li><li>SRS</li></ul></li></ol><h6>Considerations:</h6><ul><li>Verticle aspect ratio of terminal characters. I need squares</li>
 <li>Accessibility for those unfamiliar with perfect finesse inputs</li>
 <li>Logic of how spins and slides are handled feels like it will be a doozey</li>
-<li>Spend no more than a couple of weeks to finish the project. (foreshadowing)</li></ul><p><a href="/fppdevlog/about">About</a></p><p><i>the pages on this website were generated from markdown files, written by following the "static site generator" guided project over at</i> <a href="https://www.boot.dev">boot.dev</a></p></div></article>
+<li>Spend no more than a couple of weeks to finish the project. (foreshadowing)</li></ul><h4>TOGETHAAAWEWI</h4><h4>LLDEVOWAAAAAA</h4><h4>THEVERYGODSXD</h4><p><a href="/fppdevlog/about">About</a></p><p><sub><code>the pages on this website were generated from markdown files, written by following the "static site generator" guided project over at </code> <a href="https://www.boot.dev">boot->dev</a></sub></p></div></article>
   </body>
 </html>

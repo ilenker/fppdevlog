@@ -90,8 +90,10 @@ void clear_rows(board_t *board, int fullrow, int count) {
 	row_t *full_row = pre_gap->next;
 	row_t *post_gap;
 	post_gap = full_row; 
-	while (count > 1) {              // go down 'count' times
-		post_gap = post_gap->next;  // to find the end of gap
+             // go down 'count' times
+            // to find the end of gap
+	while (count > 1) {             
+		post_gap = post_gap->next;  
 		count--;                   
 	}
 	pre_gap->next = post_gap->next;

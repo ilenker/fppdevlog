@@ -2,7 +2,7 @@
 
 [< Back Home](/)
 
-Musician starting a career in software at 29 in the year 2025.
+Musician starting a career in software at XX in the year 20XX.
 
 Things that I love that love me back:
 
@@ -17,6 +17,6 @@ Things I try to love that reciprocate on occasion:
 3. VIM
 4. "Calisthenics" (read: pull-ups and dips)
 
-[github.com/ilenker](https://github.com/ilenker)
+#### CREDOMEMUTAREPOTEST
 
-Credo me mutare potest.
+[github.com/ilenker](https://github.com/ilenker)
