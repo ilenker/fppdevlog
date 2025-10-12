@@ -1,14 +1,14 @@
-![page banner](/images/banner.png)
-
-# BATCHTRIS
+# THINK, EXECUTE
 
 ## WHATISAMANAMI<br>SERABLELITTLE<br>PILEOFSECRETS 
 
-A take on tetris based on the idea of placing a sequence of pieces in "batches". Name needs work.
+A take on tetris based on the idea of placing a sequence of pieces in "batches". 
 
 [ -> 2025-09-27 >> Linked-Lists, Technical Debt](/blog/2025-09-27)
 
-You're given a queue, say a 7-bag, then you need to somehow input the total sequence for the entire 7-bag, without seeing the result of each move. Thinking the input notation would also assume perfect finesse. While writing a simple typing test program in Python using Curses, I learned that dealing with user input, specifically "key-release" events is not trivial in the slightest. If I were to write a tetris clone with modern features (custom DAS and ARR, support for various spins), the standard ways of dealing with input wouldn't cut it. I'll get into the reasons for this in future logs.
+A practise tool for planning ahead in Tetris.
+You're given 4 pieces at a time (via the piece preview window)
+which you need to place without visual feedback.
 
 ###### Overview:
 
@@ -24,11 +24,11 @@ You're given a queue, say a 7-bag, then you need to somehow input the total sequ
 - Spend no more than a couple of weeks to finish the project. (foreshadowing)
 
 
-#### TOGETHAAAWEWI
+#### NHGFTRAHYTDFR
 
-#### LLDEVOWAAAAAA
+#### OIIUHAYAEEARF
 
-#### THEVERYGODSXD
+#### TNSREWTNSRYFR
 
 [About](/about)
 
